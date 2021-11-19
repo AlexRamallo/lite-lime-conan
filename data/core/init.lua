@@ -665,7 +665,7 @@ function core.init()
     end
     project_dir_abs = system.absolute_path(".")
     if not core.set_project_dir(project_dir_abs) then
-      system.show_fatal_error("Lite Lime internal error", "cannot set project directory to cwd")
+      system.show_fatal_error(NAME .. " internal error", "cannot set project directory to cwd")
       os.exit(1)
     end
   end
@@ -737,7 +737,7 @@ function core.init()
       "Refused Plugins",
       string.format(
         "Some plugins are not loaded due to version mismatch.\n\n%s.\n\n" ..
-        "Please download a recent version from https://github.com/franko/lite-plugins.",
+        "Please download a recent version.",
         table.concat(msg, ".\n\n")),
       opt, function(item)
         if item.text == "Exit" then os.exit(1) end
@@ -1222,7 +1222,7 @@ end
 
 
 function core.compose_window_title(title)
-  return title == "" and "Lite Lime" or title .. " - Lite Lime"
+  return title == "" and NAME or title .. " - " .. NAME
 end
 
 
