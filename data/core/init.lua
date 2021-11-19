@@ -778,7 +778,7 @@ function core.confirm_close_docs(docs, close_fn, ...)
 end
 
 local temp_uid = (system.get_time() * 1000) % 0xffffffff
-local temp_file_prefix = string.format(".lite_temp_%08x", temp_uid)
+local temp_file_prefix = string.format(".lite_temp_%08x", math.floor(temp_uid))
 local temp_file_counter = 0
 
 local function delete_temp_files()

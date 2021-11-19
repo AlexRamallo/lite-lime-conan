@@ -119,7 +119,7 @@ end
 
 function keymap.on_mouse_pressed(button, x, y, clicks)
   local click_number = (((clicks - 1) % config.max_clicks) + 1)
-  return not (keymap.on_key_pressed(click_number  .. button:sub(1,1) .. "click", x, y, clicks) or
+  return not (keymap.on_key_pressed(math.floor(click_number)  .. button:sub(1,1) .. "click", x, y, clicks) or
     keymap.on_key_pressed(button:sub(1,1) .. "click", x, y, clicks) or
     keymap.on_key_pressed(click_number .. "click", x, y, clicks) or
     keymap.on_key_pressed("click", x, y, clicks))

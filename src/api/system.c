@@ -702,6 +702,7 @@ typedef struct {
 #define U(FUNC) { "luaL_" #FUNC, (void*)(luaL_##FUNC) }
 static void* api_require(const char* symbol) {
   static lua_function_node nodes[] = {
+/*
     P(absindex), P(arith), P(atpanic), P(callk), P(checkstack), 
     P(close), P(compare), P(concat), P(copy), P(createtable), P(dump), 
     P(error),  P(gc), P(getallocf), P(getctx), P(getfield), P(getglobal),
@@ -727,6 +728,7 @@ static void* api_require(const char* symbol) {
     U(newstate), U(len), U(setfuncs), U(getsubtable), U(buffinit), 
     U(prepbuffsize), U(addlstring), U(addstring), U(addvalue), U(pushresult),
     U(pushresultsize), U(buffinitsize)
+*/
   };
   for (int i = 0; i < sizeof(nodes) / sizeof(lua_function_node); ++i) {
     if (strcmp(nodes[i].symbol, symbol) == 0)
