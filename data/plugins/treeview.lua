@@ -352,26 +352,6 @@ local view = TreeView()
 local node = core.root_view:get_active_node()
 local treeview_node = node:split("left", view, {x = true}, true)
 
--- The toolbarview plugin is special because it is plugged inside
--- a treeview pane which is itelf provided in a plugin.
--- We therefore break the usual plugin's logic that would require each
--- plugin to be independent of each other. In addition it is not the
--- plugin module that plug itself in the active node but it is plugged here
--- in the treeview node.
-local toolbar_view = nil
-local toolbar_plugin, ToolbarView = core.try(require, "plugins.toolbarview")
-if config.plugins.toolbarview ~= false and toolbar_plugin then
-  toolbar_view = ToolbarView()
-  treeview_node:split("down", toolbar_view, {y = true})
-  local min_toolbar_width = toolbar_view:get_min_width()
-  view:set_target_size("x", math.max(default_treeview_size, min_toolbar_width))
-  command.add(nil, {
-    ["toolbar:toggle"] = function()
-      toolbar_view:toggle_visible()
-    end,
-  })
-end
-
 -- Add a context menu to the treeview
 local menu = ContextMenu()
 
@@ -546,9 +526,6 @@ command.add(function() return view.hovered_item ~= nil end, {
 
 keymap.add { ["ctrl+\\"] = "treeview:toggle" }
 
--- Return the treeview with toolbar and contextmenu to allow
--- user or plugin modifications
-view.toolbar = toolbar_view
 view.contextmenu = menu
 
 return view
