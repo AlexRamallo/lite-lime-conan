@@ -27,37 +27,38 @@ style.icon_font = renderer.font.load(DATADIR .. "/fonts/icons.ttf", 16 * SCALE, 
 style.icon_big_font = style.icon_font:copy(23 * SCALE)
 style.code_font = renderer.font.load(DATADIR .. "/fonts/JetBrainsMono-Regular.ttf", 15 * SCALE)
 
-style.background = { common.color "#2e2e32" }
-style.background2 = { common.color "#252529" }
-style.background3 = { common.color "#252529" }
-style.text = { common.color "#97979c" }
-style.caret = { common.color "#93DDFA" }
-style.accent = { common.color "#e1e1e6" }
-style.dim = { common.color "#525257" }
-style.divider = { common.color "#202024" }
-style.selection = { common.color "#48484f" }
-style.line_number = { common.color "#525259" }
-style.line_number2 = { common.color "#83838f" }
-style.line_highlight = { common.color "#343438" }
-style.scrollbar = { common.color "#414146" }
-style.scrollbar2 = { common.color "#4b4b52" }
-style.nagbar = { common.color "#FF0000" }
-style.nagbar_text = { common.color "#FFFFFF" }
+style.background = { common.color "#282923" }
+style.background2 = { common.color "#181915" }
+style.background3 = { common.color "#181915" }
+style.text = { common.color "#9ea191" }
+style.caret = { common.color "#f8f8f2" }
+style.accent = { common.color "#f8f8f2" }
+style.dim = { common.color "#5e6052" }
+style.divider = { common.color "#1b1c17" }
+style.selection = { common.color "#3a3a32" }
+style.line_number = { common.color "#90918b" }
+style.line_number2 = { common.color "#d2d0c6" }
+style.line_highlight = { common.color "#282923" }
+style.scrollbar = { common.color "#63635f" }
+style.scrollbar2 = { common.color "#3d3d38" }
+
+style.nagbar = { common.color "#282923" }
+style.nagbar_text = { common.color "#f8f8f2" }
 style.nagbar_dim = { common.color "rgba(0, 0, 0, 0.45)" }
 style.drag_overlay = { common.color "rgba(255,255,255,0.1)" }
 style.drag_overlay_tab = { common.color "#93DDFA" }
 
 style.syntax = {}
-style.syntax["normal"] = { common.color "#e1e1e6" }
-style.syntax["symbol"] = { common.color "#e1e1e6" }
-style.syntax["comment"] = { common.color "#676b6f" }
-style.syntax["keyword"] = { common.color "#E58AC9" }
-style.syntax["keyword2"] = { common.color "#F77483" }
-style.syntax["number"] = { common.color "#FFA94D" }
-style.syntax["literal"] = { common.color "#FFA94D" }
-style.syntax["string"] = { common.color "#f7c95c" }
-style.syntax["operator"] = { common.color "#93DDFA" }
-style.syntax["function"] = { common.color "#93DDFA" }
+style.syntax["normal"] = { common.color "#f8f8f2" }
+style.syntax["symbol"] = { common.color "#f8f8f2" }
+style.syntax["comment"] = { common.color "#75715E" }
+style.syntax["keyword"] = { common.color "#f92472" }
+style.syntax["keyword2"] = { common.color "#f92472" }
+style.syntax["number"] = { common.color "#ac80ff" }
+style.syntax["literal"] = { common.color "#e7db74" }
+style.syntax["string"] = { common.color "#e7db74" }
+style.syntax["operator"] = { common.color "#f92472" }
+style.syntax["function"] = { common.color "#5cd5ef" }
 
 -- This can be used to override fonts per syntax group.
 -- The syntax highlighter will take existing values from this table and
