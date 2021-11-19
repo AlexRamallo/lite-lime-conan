@@ -41,8 +41,6 @@ local function save(filename)
     abs_filename = core.project_absolute_path(filename)
   end
   doc():save(filename, abs_filename)
-  local saved_filename = doc().filename
-  core.log("Saved \"%s\"", saved_filename)
 end
 
 local function cut_or_copy(delete)
