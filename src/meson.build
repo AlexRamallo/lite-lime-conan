@@ -8,6 +8,9 @@ lite_sources = [
     'renderer.c',
     'renwindow.c',
     'rencache.c',
+
+    'app.c',
+    'flag.c',
     'main.c',
 ]
 
