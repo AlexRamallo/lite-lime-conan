@@ -1,5 +1,6 @@
 local syntax = require "core.syntax"
 local common = require "core.common"
+local bit = require "core.bit"
 
 local tokenizer = {}
 
@@ -72,7 +73,7 @@ local function retrieve_syntax_state(incoming_syntax, state)
     -- syntax we're using. Rather than walking the bytes, and calling into
     -- `syntax` each time, we could probably cache this in a single table.
     for i = 0, 2 do
-      local target = bit32.extract(state, i*8, 8)
+      local target = bit.extract(state, i*8, 8)
       if target ~= 0 then
         if current_syntax.patterns[target].syntax then
           subsyntax_info = current_syntax.patterns[target]
@@ -114,7 +115,7 @@ function tokenizer.tokenize(incoming_syntax, text, state)
   -- Should be used to set the state variable. Don't modify it directly.
   local function set_subsyntax_pattern_idx(pattern_idx)
     current_pattern_idx = pattern_idx
-    state = bit32.replace(state, pattern_idx, current_level*8, 8)
+    state = bit.replace(state, pattern_idx, current_level*8, 8)
   end
   
   
