@@ -1,4 +1,5 @@
 local core = require "core"
+local syntax = require "core.syntax"
 local common = require "core.common"
 local command = require "core.command"
 local config = require "core.config"
@@ -111,36 +112,20 @@ function StatusView:get_items()
     local indent_type, indent_size, indent_confirmed = dv.doc:get_indent_info()
     local indent_label = (indent_type == "hard") and "tabs: " or "spaces: "
     local indent_size_str = tostring(indent_size) .. (indent_confirmed and "" or "*") or "unknown"
+    local lang_name = dv.doc.syntax.name
 
     return {
       dirty and style.accent or style.text, style.icon_font, "f",
       style.dim, style.font, self.separator2, style.text,
-      dv.doc.filename and style.text or style.dim, dv.doc:get_name(),
-      style.text,
-      self.separator,
-      "line: ", line,
-      self.separator,
-      col > config.line_limit and style.accent or style.text, "col: ", col,
-      style.text,
-      self.separator,
-      string.format("%d%%", math.floor(line / #dv.doc.lines * 100)),
+      "Line ", line, ", Column: ", col,
     }, {
       style.text, indent_label, indent_size,
-      style.dim, self.separator2, style.text,
-      style.icon_font, "g",
-      style.font, style.dim, self.separator2, style.text,
-      #dv.doc.lines, " lines",
       self.separator,
-      dv.doc.crlf and "CRLF" or "LF"
+      lang_name
     }
   end
 
-  return {}, {
-    style.icon_font, "g",
-    style.font, style.dim, self.separator2,
-    #core.docs, style.text, " / ",
-    #core.project_files, " files"
-  }
+  return {}, {}
 end
 
 
