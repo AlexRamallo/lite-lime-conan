@@ -1,9 +1,4 @@
 build*/
-.build*/
-lhelper/
-submodules/
-subprojects/lua/
-subprojects/reproc/
 /appimage*
 .ccls-cache
 .lite-debug.log
@@ -16,5 +11,3 @@ subprojects/reproc/
 *App*
 compile_commands.json
 error.txt
-lite-lime*
-LiteLime*
