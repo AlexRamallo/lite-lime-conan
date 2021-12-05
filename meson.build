@@ -1,4 +1,4 @@
-project('lite-xl',
+project('lite-lime',
     ['c'],
     version : '2.0.3',
     license : 'MIT',
@@ -77,16 +77,16 @@ elif get_option('bundle') and host_machine.system() == 'darwin'
     )
 else
     lite_bindir = 'bin'
-    lite_docdir = 'share/doc/lite-xl'
-    lite_datadir = 'share/lite-xl'
+    lite_docdir = 'share/doc/lite-lime'
+    lite_datadir = 'share/lite-lime'
     if host_machine.system() == 'linux'
-        install_data('resources/icons/lite-xl.svg',
+        install_data('resources/icons/lite-lime.svg',
             install_dir : 'share/icons/hicolor/scalable/apps'
         )
-        install_data('resources/linux/org.lite_xl.lite_xl.desktop',
+        install_data('resources/linux/org.lite_lime.lite_lime.desktop',
             install_dir : 'share/applications'
         )
-        install_data('resources/linux/org.lite_xl.lite_xl.appdata.xml',
+        install_data('resources/linux/org.lite_lime.lite_lime.appdata.xml',
             install_dir : 'share/metainfo'
         )
     endif
@@ -110,5 +110,4 @@ configure_file(
 if not get_option('source-only')
     subdir('lib/dmon')
     subdir('src')
-    subdir('scripts')
 endif

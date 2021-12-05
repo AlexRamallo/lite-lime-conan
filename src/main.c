@@ -68,6 +68,10 @@ static void init_window_icon(void) {
 #endif
 }
 
+#ifndef LITE_VERSION
+#define LITE_VERSION "git"
+#endif
+
 #ifdef _WIN32
 #define LITE_OS_HOME "USERPROFILE"
 #define LITE_PATHSEP_PATTERN "\\\\"
@@ -163,6 +167,7 @@ init_lua:
     "local core\n"
     "xpcall(function()\n"
     "  HOME = os.getenv('" LITE_OS_HOME "')\n"
+    "  VERSION = '" LITE_VERSION "'\n"
     "  local exedir = EXEFILE:match('^(.*)" LITE_PATHSEP_PATTERN LITE_NONPATHSEP_PATTERN "$')\n"
     "  local prefix = exedir:match('^(.*)" LITE_PATHSEP_PATTERN "bin$')\n"
     "  dofile((MACOS_RESOURCES or (prefix and prefix .. '/share/lite-xl' or exedir .. '/data')) .. '/core/start.lua')\n"
@@ -183,7 +188,7 @@ init_lua:
     "    fp:write(debug.traceback(nil, 4)..'\\n')\n"
     "    fp:close()\n"
     "  end\n"
-    "  system.show_fatal_error('Lite XL internal error',\n"
+    "  system.show_fatal_error('Lite Lime internal error',\n"
     "    'An internal error occurred in a critical part of the application.\\n\\n'..\n"
     "    'Please verify the file \\\"error.txt\\\" in the directory '..error_dir)\n"
     "  os.exit(1)\n"

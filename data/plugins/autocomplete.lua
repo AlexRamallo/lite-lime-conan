@@ -1,4 +1,4 @@
--- mod-version:2 -- lite-xl 2.0
+-- mod-version:2 -- lite-lime 2.0
 local core = require "core"
 local common = require "core.common"
 local config = require "core.config"

@@ -665,7 +665,7 @@ function core.init()
     end
     project_dir_abs = system.absolute_path(".")
     if not core.set_project_dir(project_dir_abs) then
-      system.show_fatal_error("Lite XL internal error", "cannot set project directory to cwd")
+      system.show_fatal_error("Lite Lime internal error", "cannot set project directory to cwd")
       os.exit(1)
     end
   end
@@ -839,14 +839,6 @@ local function check_plugin_version(filename)
     local mod_version = line:match('%-%-.*%f[%a]mod%-version%s*:%s*(%d+)')
     if mod_version then
       version_match = (mod_version == MOD_VERSION)
-      break
-    end
-    -- The following pattern is used for backward compatibility only
-    -- Future versions will look only at the mod-version tag.
-    local version = line:match('%-%-%s*lite%-xl%s*(%d+%.%d+)$')
-    if version then
-      -- we consider the version tag 2.0 equivalent to mod-version:2
-      version_match = (version == '2.0' and MOD_VERSION == "2")
       break
     end
   end
@@ -1230,7 +1222,7 @@ end
 
 
 function core.compose_window_title(title)
-  return title == "" and "Lite XL" or title .. " - Lite XL"
+  return title == "" and "Lite Lime" or title .. " - Lite Lime"
 end
 
 

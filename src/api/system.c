@@ -755,7 +755,7 @@ static int f_load_native_plugin(lua_State *L) {
 
   const char *basename = strrchr(name, '.');
   basename = !basename ? name : basename + 1;
-  snprintf(entrypoint_name, sizeof(entrypoint_name), "luaopen_lite_xl_%s", basename);
+  snprintf(entrypoint_name, sizeof(entrypoint_name), "luaopen_lite_lime_%s", basename);
   int (*ext_entrypoint) (lua_State *L, void*) = SDL_LoadFunction(library, entrypoint_name);
   if (!ext_entrypoint) {
     snprintf(entrypoint_name, sizeof(entrypoint_name), "luaopen_%s", basename);

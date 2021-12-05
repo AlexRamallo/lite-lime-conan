@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>org.lite_lime.lite_lime</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Lite Lime</name>
+  <summary>A lightweight text editor written in Lua</summary>
+  <content_rating type="oars-1.0" />
+
+  <description>
+    <p>
+      Lite Lime is a text editor and development tool written mainly in Lua,
+      on top of a minimalistic C core using the SDL2 graphics library.
+    </p>
+  </description>
+
+  <provides>
+    <binary>lite-lime</binary>
+  </provides>
+</component>

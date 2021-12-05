@@ -16,5 +16,5 @@ subprojects/reproc/
 *App*
 compile_commands.json
 error.txt
-lite-xl*
-LiteXL*
+lite-lime*
+LiteLime*

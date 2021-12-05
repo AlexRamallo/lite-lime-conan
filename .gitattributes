@@ -2,6 +2,4 @@
 # See https://help.github.com/en/articles/dealing-with-line-endings
 * text=auto
 
-winlib/*  linguist-vendored
-src/lib/* linguist-vendored
 resources/icons/icon.inl linguist-vendored
