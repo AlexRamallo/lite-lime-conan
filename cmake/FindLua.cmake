@@ -5,9 +5,9 @@
 
 find_package(PkgConfig QUIET)
 if (PKG_CONFIG_FOUND)
-	pkg_check_modules(_LUA lua)
+	pkg_check_modules(_LUA ${LUA_VERSION})
 
-	if (BUILD_STATIC AND NOT ${LUA_VERSION})
+	if (BUILD_STATIC AND NOT _LUA_FOUND)
 		 message(FATAL_ERROR "Cannot find static build information")
 	endif()
 endif()

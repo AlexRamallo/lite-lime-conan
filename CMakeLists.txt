@@ -9,8 +9,8 @@ if(NOT CMAKE_BUILD_TYPE)
         "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel." FORCE)
 endif()
 
-set(LUA_VERSION "lua" CACHE STRING "Lua version to try and find." FORCE)
-set(SDL_RENDERER OFF CACHE BOOL "Use the SDL2 based renderer" FORCE)
+set(LUA_VERSION "lua" CACHE STRING "Lua version to try and find.")
+set(SDL_RENDERER OFF CACHE BOOL "Use the SDL2 based renderer")
 
 project(lite-lime VERSION 3.0.0 LANGUAGES C)
 
