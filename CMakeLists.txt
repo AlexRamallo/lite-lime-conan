@@ -14,6 +14,9 @@ set(SDL_RENDERER OFF CACHE BOOL "Use the SDL2 based renderer")
 
 project(lite-lime VERSION 3.0.0 LANGUAGES C)
 
+#Loads the Conan-generated paths so dependencies can be found
+include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 add_compile_definitions(LITE_NAME="Lime Lite")

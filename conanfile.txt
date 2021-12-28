@@ -1,0 +1,13 @@
+[requires]
+lua/5.4.3
+pcre2/10.37
+freetype/2.11.1
+
+[options]
+lua:shared=False
+pcre:shared=False
+freetype:shared=False
+
+[generators]
+cmake_find_package
+cmake_paths

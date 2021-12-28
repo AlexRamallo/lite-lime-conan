@@ -25,9 +25,10 @@ set(API_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/api/system.c
 )
 
-find_package(Lua REQUIRED)
-find_package(PCRE REQUIRED)
-find_package(FreeType2 REQUIRED)
+#Package names from Conan are slightly different
+find_package(lua REQUIRED)
+find_package(pcre2 REQUIRED)
+find_package(Freetype REQUIRED)
 find_package(SDL2 REQUIRED)
 
 set(CFLAGS
@@ -36,26 +37,26 @@ set(CFLAGS
     -Winit-self -Wcast-align -Wpointer-arith
     -Wmissing-declarations -Wmissing-include-dirs
     -Wno-unused-parameter -Wuninitialized
-    ${LUA_CFLAGS}
-    ${PCRE_CFLAGS}
-    ${FREETYPE2_CFLAGS}
+    ${lua_CFLAGS}
+    ${pcre2_CFLAGS}
+    ${Freetype_CFLAGS}
 )
 
 
 add_library(core OBJECT ${MAIN_SOURCES})
 target_include_directories(core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(core PUBLIC ${PROJECT_SOURCE_DIR}/lib/dmon)
-target_include_directories(core PUBLIC ${LUA_INCLUDE_DIRS})
-target_include_directories(core PUBLIC ${PCRE_INCLUDE_DIRS})
-target_include_directories(core PUBLIC ${FREETYPE2_INCLUDE_DIRS})
+target_include_directories(core PUBLIC ${lua_INCLUDE_DIRS})
+target_include_directories(core PUBLIC ${pcre2_INCLUDE_DIRS})
+target_include_directories(core PUBLIC ${Freetype_INCLUDE_DIRS})
 target_include_directories(core PUBLIC ${SDL2_INCLUDE_DIR})
 
 add_library(api OBJECT ${API_SOURCES})
 target_include_directories(api PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(api PUBLIC ${PROJECT_SOURCE_DIR}/lib/dmon)
-target_include_directories(api PUBLIC ${LUA_INCLUDE_DIRS})
-target_include_directories(api PUBLIC ${PCRE_INCLUDE_DIRS})
-target_include_directories(api PUBLIC ${FREETYPE2_INCLUDE_DIRS})
+target_include_directories(api PUBLIC ${lua_INCLUDE_DIRS})
+target_include_directories(api PUBLIC ${pcre2_INCLUDE_DIRS})
+target_include_directories(api PUBLIC ${Freetype_INCLUDE_DIRS})
 target_include_directories(api PUBLIC ${SDL2_INCLUDE_DIR})
 
 target_compile_options(core PUBLIC ${CFLAGS})
@@ -63,9 +64,9 @@ target_compile_options(core PUBLIC ${CFLAGS})
 add_executable(${CMAKE_PROJECT_NAME} $<TARGET_OBJECTS:core> $<TARGET_OBJECTS:api>)
 
 target_link_libraries(${CMAKE_PROJECT_NAME} LINK_PUBLIC m dl)
-target_link_libraries(${CMAKE_PROJECT_NAME} LINK_PUBLIC ${LUA_LIBRARIES})
-target_link_libraries(${CMAKE_PROJECT_NAME} LINK_PUBLIC ${PCRE_LIBRARIES})
-target_link_libraries(${CMAKE_PROJECT_NAME} LINK_PUBLIC ${FREETYPE2_LIBRARIES})
+target_link_libraries(${CMAKE_PROJECT_NAME} LINK_PUBLIC ${lua_LIBRARIES})
+target_link_libraries(${CMAKE_PROJECT_NAME} LINK_PUBLIC ${pcre2_LIBRARIES})
+target_link_libraries(${CMAKE_PROJECT_NAME} LINK_PUBLIC ${Freetype_LIBRARIES})
 target_link_libraries(${CMAKE_PROJECT_NAME} LINK_PUBLIC ${SDL2_LIBRARY})
 
 
