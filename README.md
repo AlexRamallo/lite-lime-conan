@@ -1,19 +1,30 @@
 # Lite Lime
 
-A text editor written in Lua, adapted to fill the same nieche as Sublime currently does for me.
+Sample showing build using Conan and CMake (based on https://github.com/Jan200101/lite-lime)
 
-![screenshot]
+# Requirements
 
-## Overview
+* CMake
+* Python
+	* Conan: `pip install conan`
 
-Lite Lime is derived from [Lite-XL].
+# Building
 
-## Licenses
+```
+mkdir build && cd build
 
-This project is free software; you can redistribute it and/or modify it under
-the terms of the MIT license. See [LICENSE] for details.
+#download and/or build dependencies
+conan install .. --build=missing
 
+#configure and build CMake project as usual
+cmake ..
+cmake --build .
+```
 
-[LICENSE]: LICENSE
-[Lite-XL]: https://github.com/lite-xl/lite-xl/
-[screenshot]: https://user-images.githubusercontent.com/15076013/142744336-ab0b0350-6348-4cb2-889b-12e30ff38800.png
+# Notes
+
+This project is not using the SDL2 recipe from Conan. It can be done just like all the others, however that recipe on Conan Center does not allow you to link with the system version. This means that you'll have to recompile the entirety of SDL2 (including all of its dependencies). 
+
+This may or may not be desirable, but for this demo I decided to not to do it.
+
+Changing this behavior will require the SDL2 recipe to be modified.
